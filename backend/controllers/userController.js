@@ -4,13 +4,14 @@ const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+
 const  register = async (req,res)=> {
     try {
         let { username, email, password } = req.body;
     if (!email || !username || !password) {
         return res.send({ msg: "All data are required"});
     }
-    let oldUser = await UserActivation.findOne({ email });
+    let oldUser = await User.findOne({ email });
     if (oldUser) {
         return res.send({
             msg: "user already exist please login or register with a new email",
@@ -49,7 +50,7 @@ if (!isPasswordValid) {
   
 let token = jwt.sign(
     { email: user.email, id:user._id},
-    process.env.SECRET_KEY
+    process.env.PASSWORD
 );
 res.send({msg: "Login successfully", token});
 } catch(error) {

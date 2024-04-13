@@ -14,5 +14,5 @@ app.use("/user", require("./routers/userRoutes"))
 app.use("/blogs", require("./routers/blogRoutes"));
 
 app.listen(port, () =>
-console.log('Server is start listening on port ${port}')
+console.log(`Server is start listening on port ${port}`)
 );
