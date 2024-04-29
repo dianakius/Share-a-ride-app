@@ -6,6 +6,7 @@ import Ride from "./components/Ride"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "./App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 
@@ -16,6 +17,8 @@ const toggleForm = (formName) => {
 }
 
   return (
+    <>
+    <FontAwesomeIcon icon="fa-regular fa-car-side" />
     <BrowserRouter>
     <Navbar />
     <div className="App"> 
@@ -31,6 +34,7 @@ const toggleForm = (formName) => {
     </Routes>
     </div>
       </BrowserRouter>
+      </>
   );
 };
 
