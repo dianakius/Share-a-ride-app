@@ -1,4 +1,5 @@
 # Share-A-Ride-App-Final-Project
+<<<<<<< HEAD
 🌟 Introducing Your Ticket to Adventure: Share Ride! 🚗✨
 
 Say goodbye to the woes of expensive travel and hello to a whole new world of convenience, savings, and friendship! With Share Ride, navigating from city to city has never been more delightful or budget-friendly.
@@ -20,3 +21,6 @@ It's not just about reaching your destination; it's about the unforgettable conn
 Ready to hit the road with Share Ride? Whether you're a seasoned wanderer or a first-time traveler, there's a seat with your name on it. Download the app now, and let's embark on an epic journey together. Adventure is calling, and with Share Ride, you're always just a click away from your next great escapade!
 
 With Share Ride, the road ahead is filled with endless possibilities and boundless smiles. Let's rev up those engines and make every trip a remarkable one! 🚀🛣️
+=======
+# Share-A-Ride-App-Final-Project
+>>>>>>> 6bcef2e68c5d3b0ff9a113460114d361d554a724
