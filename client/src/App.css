@@ -49,6 +49,13 @@
     text-decoration: underline;
 }
   
+.home {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
   
   /* {background-image: url("Background1.png");
    min-height: 100vh;

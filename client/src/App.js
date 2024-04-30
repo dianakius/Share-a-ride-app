@@ -1,12 +1,12 @@
 import React, { useState} from "react";
 import { Login } from "./components/Login";
-import { Register} from "./components/Register";
+import { Signup} from "./components/Signup";
 import Home  from "./components/Home";
 import Ride from "./components/Ride"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "./App.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 
 
@@ -18,16 +18,12 @@ const toggleForm = (formName) => {
 
   return (
     <>
-    <FontAwesomeIcon icon="fa-regular fa-car-side" />
     <BrowserRouter>
     <Navbar />
     <div className="App"> 
-    {
-      currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register  onFormSwitch={toggleForm}/>
-    }
-    <Routes>
+      <Routes>
       <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Register/>}/> 
+      <Route path="/signup" element={<Signup/>}/> 
       <Route path="/" element={<Home/>}/> 
       <Route path="/ride" element={<Ride/>}/> 
       

@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "./navbar.css";
 import {jwtDecode } from "jwt-decode";
 import { Button } from "./Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCarSide } from "@fortawesome/free-solid-svg-icons";
+
+
 
 
 function  Navbar () {
@@ -33,8 +37,8 @@ window.addEventListener('resize', showButton);
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             Share Ride
-            <i class="fa-solid fa-car-side"></i>
-          </Link>
+            <FontAwesomeIcon icon={faCarSide} />
+                   </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
@@ -45,13 +49,13 @@ window.addEventListener('resize', showButton);
               </Link>
         </li>
         <li className="nav-item">
-            <Link to='/Login' className="nav-links" onClick={closeMobileMenu}>
+            <Link to='/login' className="nav-links" onClick={closeMobileMenu}>
                 Login
             </Link>
         </li>
         <li className="nav-item">
-            <Link to='/Register' className="nav-links" onClick={closeMobileMenu}>
-                Register
+            <Link to='/signup' className="nav-links" onClick={closeMobileMenu}>
+                Sign up
             </Link>
         </li>
         <li className="nav-item">

@@ -3,9 +3,11 @@ const User = require("../models/userModel");
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
+require("dotenv").config();
+const SALTTOKEN = process.env.SALT_ROUND;
 
 const  register = async (req,res)=> {
+    console.log(req.body)
     try {
         let { username, email, password } = req.body;
     if (!email || !username || !password) {
@@ -18,7 +20,7 @@ const  register = async (req,res)=> {
         });
     }
 
-    let hashPassword = await bcrypt.hash(password, +process.env.SALT_ROUND);
+    let hashPassword = await bcrypt.hash(password, +SALTTOKEN);
     //console.log(hashPassword);
     await User.create({ username, email, password: hashPassword });
     return res.send({msg: "Registered successfully"});

@@ -3,29 +3,29 @@ import "./form.css";
 import axios from "axios";
 import "./navbar.css";
 
-export const Register = (props) => {
+export const Signup = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
 
     const handleSubmit = (e) => {
-        email.preventDefault();
-        console.log(email);
+        e.preventDefault();
+        console.log(e);
 
     }
     return (
         <div className="auth-form-container">
-            <h2>Register</h2>
+            <h2>Sign up</h2>
         <form className="register-form"onSubmit={handleSubmit}>
             <label htmlFor="name">Full Name</label>
-            <input value={name} name="name" id="name" placeholder="full Name"></input>
+            <input value={name} name="name" id="name" placeholder="Full Name"></input>
             <label htmlFor="email">email</label>
             <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
-            <label for="password">password</label>
+            <label htmlFor="password">password</label>
             <input value={email}type="password" placeholder="********" id="password" name="password" />
             <button type="submit">Log In</button>
         </form>
-        <button className="link-btn" onClick={() =>props.onFormSwitch('login')}>Already have an account? Login here.</button>
+        {/* <button className="link-btn" onClick={() =>props.onFormSwitch('login')}>Already have an account? Login here.</button> */}
         </div>
     )
 }

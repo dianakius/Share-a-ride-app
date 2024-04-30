@@ -27,6 +27,9 @@
   font-size: 2rem;
   display: flex;
   align-items: center;
+  }
+.navbar-logo svg {
+  padding-left: 10px;
 }
 
 .fa-typo3 {

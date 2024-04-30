@@ -6,7 +6,8 @@ main()
  .then(() => console.log("DB is connected successfully"))
  .catch((err) => console.log(err));
  //connect
- async function main() {
+ async function main() 
+ { console.log("Here")
     await mongoose.connect(URI);
 }
 
