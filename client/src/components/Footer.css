@@ -131,6 +131,10 @@
     align-items: center;
     margin-bottom: 16px;
   }
+
+  .social-logo svg {
+    padding-left: 10px;
+  }
   
   .website-rights {
     color: #fff;
