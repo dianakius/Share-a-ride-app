@@ -9,7 +9,12 @@ const SALTTOKEN = process.env.SALT_ROUND;
 const  register = async (req,res)=> {
     console.log(req.body)
     try {
-        let { username, email, password } = req.body;
+        let username = req.body.name;
+        let email =req.body.email;
+        let password = req.body.pass;
+
+        // let { username, email, password } = req.body;
+        
     if (!email || !username || !password) {
         return res.send({ msg: "All data are required"});
     }
@@ -32,7 +37,10 @@ const  register = async (req,res)=> {
 
 const login = async (req, res) => {
     try {
-        let {email, password } = req.body;
+        let password = req.body.pass;
+        let email = req.body.email;
+        console.log(email,password)
+        // let {email, password } = req.body;
         if (!email || !password) {
             return res.send ({ msg: "Both email and password are required"});
         }

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./form.css";
 import axios from "axios";
 import "./navbar.css";
 
@@ -8,27 +7,74 @@ export const Signup = (props) => {
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(e);
-
+        try {
+            let user = { email, pass, name };
+            let res = await axios.post("http://localhost:8000/user/register", user);
+            alert(res.data.msg);
+            // Optionally, you can redirect the user after successful registration
+            // Example: props.history.push("/login");
+        } catch (error) {
+            console.error("Registration failed:", error);
+        }
     }
+
     return (
         <div className="auth-form-container">
             <h2>Sign up</h2>
-        <form className="register-form"onSubmit={handleSubmit}>
-            <label htmlFor="name">Full Name</label>
-            <input value={name} name="name" id="name" placeholder="Full Name"></input>
-            <label htmlFor="email">email</label>
-            <input value={email} onChange={(e) => setEmail(e.target.value)}type="email" placeholder="youremail@gmail.com" id="email" name="email" />
-            <label htmlFor="password">password</label>
-            <input value={email}type="password" placeholder="********" id="password" name="password" />
-            <button type="submit">Log In</button>
-        </form>
-        {/* <button className="link-btn" onClick={() =>props.onFormSwitch('login')}>Already have an account? Login here.</button> */}
+            <form className="register-form" onSubmit={handleSubmit}>
+                <label htmlFor="name">Full Name</label>
+                <input value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Full Name" />
+                <label htmlFor="email">Email</label>
+                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email" />
+                <label htmlFor="password">Password</label>
+                <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+                <button type="submit">Sign Up</button>
+            </form>
+            {/* <button className="link-btn" onClick={() =>props.onFormSwitch('login')}>Already have an account? Login here.</button> */}
         </div>
     )
 }
+
+
+
+
+
+
+
+// import React, { useState } from "react";
+
+// import axios from "axios";
+// import "./navbar.css";
+
+// export const Signup = (props) => {
+//     const [email, setEmail] = useState('');
+//     const [pass, setPass] = useState('');
+//     const [name, setName] = useState('');
+
+//     const handleSubmit = (e) => {
+//         e.preventDefault();
+//         console.log(e);
+//     }
+
+//     return (
+//         <div className="auth-form-container">
+//             <h2>Sign up</h2>
+//             <form className="register-form" onSubmit={handleSubmit}>
+//                 <label htmlFor="name">Full Name</label>
+//                 <input value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="Full Name" />
+//                 <label htmlFor="email">Email</label>
+//                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email" />
+//                 <label htmlFor="password">Password</label>
+//                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
+//                 <button type="submit">Sign Up</button>
+//             </form>
+//             {/* <button className="link-btn" onClick={() =>props.onFormSwitch('login')}>Already have an account? Login here.</button> */}
+//         </div>
+//     )
+// }
+
 
 
 
