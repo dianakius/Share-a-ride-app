@@ -11,7 +11,7 @@ app.use(cors());
 
 
 app.use("/user", require("./routers/userRoutes"))
-app.use("/ride", require("./routers/searchRoutes"));
+app.use("/ride", require("./routers/rideRoutes"));
 
 app.listen(port, () =>
 console.log(`Server is start listening on port ${port}`)

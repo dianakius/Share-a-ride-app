@@ -7,13 +7,14 @@ const {
     createRide,
     deleteRide,
     updateRide 
-} = require("../controllers/searchController");
+} = require("../controllers/rideController");
 
 
 
+// router.post("/create" , verifyToken, createRide);
 router.post("/create" , verifyToken, createRide);
-router.get("/" , searchRides);
-router.put("/:id" , updateRide);
-router.delete("/:id" , deleteRide);
+// router.get("/" , searchRides);
+// router.put("/:id" , updateRide);
+// router.delete("/:id" , deleteRide);
 
 module.exports = router;

@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
 const rideSchema = new mongoose.Schema(
     {
-        title: String, 
-        destination:String,
-        imgUrl: String, 
-        driver:{type:mongoose.Schema.Types.ObjectID , ref:"User"}
+        startingPoint: String,
+        endingPoint: String,
+        driver:{type:mongoose.Schema.Types.ObjectID , ref:"User"},
+        date: Date,
+        time: String,
+        cost: Number,
+                
     },
-    { timestamps: true }
+    { timestamps: true }  
 );
 
 //Model

@@ -7,7 +7,7 @@ main()
  .catch((err) => console.log(err));
  //connect
  async function main() 
- { console.log("Here")
+ { 
     await mongoose.connect(URI);
 }
 
