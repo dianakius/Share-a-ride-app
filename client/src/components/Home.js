@@ -9,7 +9,7 @@ function Home() {
     return (
       <>
         <HeroSection />
-      <Search/>
+        <Search id="search" />
       
       </>
     );

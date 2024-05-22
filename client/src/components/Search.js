@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Search.css"; // Import the CSS file for Search component
 
 const Search = () => {
     const [startLocation, setStartLocation] = useState('');
@@ -19,21 +20,21 @@ const Search = () => {
     }
 
     return (
-        <div id="search">
+        <div id="search" className="search-container">
             <h2>Search for a Ride</h2>
-            <div>
+            <div className="search-form">
                 <label>Start Location:</label>
-                <input type="text" value={startLocation} onChange={(e) => setStartLocation(e.target.value)} />
+                <input type="text" value={startLocation} onChange={(e) => setStartLocation(e.target.value)} className="search-input" />
             </div>
-            <div>
+            <div className="search-form">
                 <label>Destination:</label>
-                <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} />
+                <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} className="search-input" />
             </div>
-            <div>
+            <div className="search-form">
                 <label>Date and Time:</label>
-                <input type="datetime-local" value={dateTime} onChange={(e) => setDateTime(e.target.value)} />
+                <input type="datetime-local" value={dateTime} onChange={(e) => setDateTime(e.target.value)} className="search-input" />
             </div>
-            <button onClick={handleSearch}>Search</button>
+            <button onClick={handleSearch} className="search-button">Search</button>
         </div>
     );
 }
