@@ -1,24 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "./ContextAuth";
 import "./navbar.css";
 
-export const Signup = (props) => {
+export const Signup = () => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
+    const navigate = useNavigate();
+    const { setIsLoggedIn } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             let user = { email, pass, name };
-            let res = await axios.post("http://localhost:8000/user/register", user);
-            // alert(res.data.msg);
-            // Optionally, you can redirect the user after successful registration
-            // Example: props.history.push("/login");
+            let res = await axios.post("http://localhost:8001/user/register", user);
+            // Assuming the token is returned in the response
+            localStorage.setItem("token", res.data.token);
+            setIsLoggedIn(true);
+            navigate("/");
         } catch (error) {
             console.error("Registration failed:", error);
         }
-    }
+    };
 
     return (
         <div className="auth-form-container">
@@ -32,10 +37,9 @@ export const Signup = (props) => {
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
                 <button type="submit">Sign Up</button>
             </form>
-            {/* <button className="link-btn" onClick={() =>props.onFormSwitch('login')}>Already have an account? Login here.</button> */}
         </div>
-    )
-}
+    );
+};
 
 
 

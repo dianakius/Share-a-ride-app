@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCarSide } from "@fortawesome/free-solid-svg-icons";
-import { jwtDecode } from "jwt-decode";
-// import { Button } from "./Button";
+import { useAuth } from "./ContextAuth";
+import "./navbar.css";
 
 function Navbar() {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { isLoggedIn, setIsLoggedIn } = useAuth();
 
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
@@ -29,11 +28,9 @@ function Navbar() {
     useEffect(() => {
         const token = localStorage.getItem("token");
         if (token) {
-            const decoded = jwtDecode(token);
-            console.log(decoded);
             setIsLoggedIn(true);
         }
-    }, []);
+    }, [setIsLoggedIn]);
 
     window.addEventListener('resize', showButton);
 
@@ -98,9 +95,9 @@ function Navbar() {
                                     </Link>
                                 </li>
                                 <li className="nav-item">
-                                <Link to="/" className="nav-links" onClick={(e) => {handleLogout(); closeMobileMenu();}}>
-    Logout
-</Link>
+                                    <Link to="/" className="nav-links" onClick={(e) => {handleLogout(); closeMobileMenu();}}>
+                                        Logout
+                                    </Link>
                                 </li>
                             </>
                         )}
@@ -110,7 +107,6 @@ function Navbar() {
                             </Link>
                         </li>
                     </ul>
-                    {/* {button && <Button buttonStyle="btn--outline">SIGN UP</Button>} */}
                 </div>
             </nav>
         </>

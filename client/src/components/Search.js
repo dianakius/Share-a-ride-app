@@ -9,7 +9,7 @@ const Search = () => {
     const handleSearch = async () => {
         try {
             // Make an API call to search for available rides
-            const response = await axios.get(`http://localhost:8000/rides?startLocation=${startLocation}&destination=${destination}&dateTime=${dateTime}`);
+            const response = await axios.get(`http://localhost:8001/rides?startLocation=${startLocation}&destination=${destination}&dateTime=${dateTime}`);
             
             // Process the response and display the search results
             console.log(response.data); // Assuming the response contains the list of matching rides

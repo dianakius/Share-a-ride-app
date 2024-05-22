@@ -1,28 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { jwt_decode} from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "./ContextAuth";
 import "./navbar.css";
 
-export const Login = (props) => {
+export const Login = () => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const navigate = useNavigate();
+    const { setIsLoggedIn } = useAuth();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             let user = { email, pass };
-            console.log(user)
-            let res = await axios.post("http://localhost:8000/user/login", user);
-            // alert(res.data.msg);
+            console.log(user);
+            let res = await axios.post("http://localhost:8001/user/login", user);
             const token = res.data.token;
             localStorage.setItem("token", token);
+            setIsLoggedIn(true);
             navigate("/");
         } catch (error) {
             console.error("Login failed:", error);
         }
-    }
+    };
 
     return (
         <div className="auth-form-container">
@@ -36,8 +37,9 @@ export const Login = (props) => {
             </form>
             {/* <button className="link-btn" onClick={() =>props.onFormSwitch('register')}>Don't have an account? Register here.</button> */}
         </div>
-    )
-}
+    );
+};
+
 
 
 

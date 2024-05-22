@@ -1,6 +1,6 @@
 .navbar {
   background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-  height: 80px;
+  height: auto; /* Change to auto to accommodate content */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,44 +8,38 @@
   position: sticky;
   top: 0;
   z-index: 999;
+  padding: 10px 0; /* Add some padding for better spacing */
 }
 
 .navbar-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Change to space-between for better distribution */
   align-items: center;
-  height: 80px;
+  width: 100%;
   max-width: 1500px;
+  padding: 0 20px; /* Add padding to container */
 }
 
 .navbar-logo {
   color: #fff;
-  justify-self: start;
-  margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
   display: flex;
   align-items: center;
-  }
+}
+
 .navbar-logo svg {
   padding-left: 10px;
 }
 
-.fa-typo3 {
-  margin-left: 0.5rem;
-  font-size: 1.8rem;
-}
-
 .nav-menu {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-gap: 10px;
+  display: flex; /* Change to flex */
   list-style: none;
   text-align: center;
-  width: 60vw;
-  justify-content: end;
-  margin-right: 2rem;
+  flex-wrap: wrap; /* Allow items to wrap */
+  gap: 10px; /* Add gap for spacing */
+  justify-content: flex-end;
 }
 
 .nav-item {
@@ -79,28 +73,21 @@
 }
 
 @media screen and (max-width: 960px) {
-  .NavbarItems {
-    position: relative;
-  }
-
   .nav-menu {
-    display: flex;
     flex-direction: column;
     width: 100%;
-    height: 90vh;
+    height: auto;
     position: absolute;
     top: 80px;
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;
+    background: #242222; /* Add background for mobile menu */
+    z-index: 1;
   }
 
   .nav-menu.active {
-    background: #242222;
     left: 0;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 1;
   }
 
   .nav-links {
@@ -113,7 +100,6 @@
   .nav-links:hover {
     background-color: #fff;
     color: #242424;
-    border-radius: 0;
   }
 
   .navbar-logo {
@@ -156,6 +142,5 @@
   .nav-links-mobile:hover {
     background: #fff;
     color: #242424;
-    transition: 250ms;
   }
 }
