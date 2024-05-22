@@ -19,7 +19,7 @@ const Search = () => {
     }
 
     return (
-        <div>
+        <div id="search">
             <h2>Search for a Ride</h2>
             <div>
                 <label>Start Location:</label>

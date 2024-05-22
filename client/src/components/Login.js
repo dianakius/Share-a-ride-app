@@ -15,7 +15,7 @@ export const Login = (props) => {
             let user = { email, pass };
             console.log(user)
             let res = await axios.post("http://localhost:8000/user/login", user);
-            alert(res.data.msg);
+            // alert(res.data.msg);
             const token = res.data.token;
             localStorage.setItem("token", token);
             navigate("/");

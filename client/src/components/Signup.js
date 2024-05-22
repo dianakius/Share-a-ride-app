@@ -12,7 +12,7 @@ export const Signup = (props) => {
         try {
             let user = { email, pass, name };
             let res = await axios.post("http://localhost:8000/user/register", user);
-            alert(res.data.msg);
+            // alert(res.data.msg);
             // Optionally, you can redirect the user after successful registration
             // Example: props.history.push("/login");
         } catch (error) {

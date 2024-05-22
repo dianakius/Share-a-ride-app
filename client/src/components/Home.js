@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../App.css";
-import Footer from "./Footer"
 import HeroSection from "./HeroSection";
 import Search from "./Search";
 
@@ -11,7 +10,7 @@ function Home() {
       <>
         <HeroSection />
       <Search/>
-        <Footer />
+      
       </>
     );
   }
