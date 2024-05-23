@@ -11,7 +11,7 @@ body {
   font-family: 'PT Sans', sans-serif;
   background: url('/public/Background.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: rgb(240, 240, 240);
+  color: rgb(255, 254, 254);
 }
 
 .App {  
@@ -31,7 +31,7 @@ body {
 @media screen and (min-width: 600px) {
   .auth-form-container {
     padding: 5rem;
-    border: 1px solid rgb(17, 13, 243);
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 10px;
     margin: 0.5rem;
   }
@@ -55,7 +55,7 @@ button {
   padding: 20px;
   border-radius: 10px;
   cursor: pointer;
-  color: #2027e2;
+  color: #000000;
 }
 
 .link-btn {
@@ -69,7 +69,7 @@ button {
   height: 90vh;
   align-items: center;
   justify-content: center;
-  font-size:
+  font-size: 3rem;
 } 
 
 
