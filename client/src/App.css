@@ -5,6 +5,15 @@
   font-family: 'PT Sans', sans-serif;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', sans-serif;
+  background: url('/public/Background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: rgb(240, 240, 240);
+}
+
 .App {  
   text-align: center;
   display: flex;
@@ -12,65 +21,103 @@
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  color:white;
-  background-image: linear-gradient(790deg, #a6a630, #26a7da 48%, #2027e2);
 }
-  .auth-form-container, .login-form, .register-form {
-    display: flex;
-    flex-direction:column;
+
+.auth-form-container, .login-form, .register-form {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 600px) {
-  }
-  .auth-form-container{
+  .auth-form-container {
     padding: 5rem;
-    border: 1px solid white;
+    border: 1px solid rgb(17, 13, 243);
     border-radius: 10px;
     margin: 0.5rem;
+  }
 }
 
-
-  label {
-    text-align: left;
-    padding: 0.25rem 0;
+label {
+  text-align: left;
+  padding: 0.25rem 0;
 }
 
-  input {
-    margin: 0.5rem 0;
-    padding: 1rem;
-    border:none;
-    border-radius: 10px;
+input {
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
 }
 
-  button {
-    border: none;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    color:#2027e2;
+button {
+  border: none;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #2027e2;
 }
-  
-  .link-btn{
-    background: none;
-    color: white;
-    text-decoration: underline;
+
+.link-btn {
+  background: none;
+  color: rgb(31, 16, 235);
+  text-decoration: underline;
 }
-  
+
 .home {
   display: flex;
   height: 90vh;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
-}
-  
-  /* {background-image: url("Background1.png");
-   min-height: 100vh;
-  min-width: 100vw;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  /* opacity: 0.65; */
- 
+  font-size:
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
