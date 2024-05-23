@@ -32,9 +32,10 @@ const Search = () => {
                     <input type="text" value={destination} onChange={(e) => setDestination(e.target.value)} className="search-input" />
                 </div>
                 <div>
-                    <label>Date and Time:</label>
-                    <input type="datetime-local" value={dateTime} onChange={(e) => setDateTime(e.target.value)} className="search-input" />
-                </div>
+    <label>Date and Time:</label>
+    <input type="datetime-local" value={dateTime} onChange={(e) => setDateTime(e.target.value)} className="search-input date-input" />
+</div>
+
                 <button onClick={handleSearch} className="search-button">Search</button>
             </div>
 
@@ -56,4 +57,3 @@ const Search = () => {
 }
 
 export default Search;
-
