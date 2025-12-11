@@ -9,7 +9,7 @@ function HeroSection() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-linear-to-br from-blue-600 to-purple-700 text-white px-4 pb-10">
+    <div className="flex flex-col justify-center items-center h-screen bg-linear-to-br from-yellow-600 to-purple-700 text-white px-4 pb-10">
       <h1 className="text-5xl md:text-7xl font-bold text-center mb-4">
         LET'S RIDE!
       </h1>
