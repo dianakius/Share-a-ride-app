@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCarSide } from "@fortawesome/free-solid-svg-icons";
+import Button from './Button';
 
 function Footer() {
   return (
@@ -22,12 +23,13 @@ function Footer() {
               placeholder="Your Email"
               className="w-full sm:flex-1 px-4 py-3 rounded border border-gray-600 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white"
             />
-            <button
-              type="button"
-              className="w-full sm:w-auto px-6 py-3 border-2 border-white rounded text-white hover:bg-white hover:text-gray-900 transition-colors duration-300 font-semibold"
-            >
-              Subscribe
-            </button>
+           <Button 
+                  // scrollTo="search"      
+                  buttonStyle="outline"   // Transparent with white border
+                  buttonSize="medium"      // Large size
+                >
+                  Subscribe
+                </Button>
           </form>
         </div>
       </div>
