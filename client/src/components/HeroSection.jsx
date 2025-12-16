@@ -1,12 +1,8 @@
 import React from 'react';
+import Button from './Button';
 
 function HeroSection() {
-  const handleClick = () => {
-    const searchSection = document.getElementById('search');
-    if (searchSection) {
-      searchSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+
 
   return (
     <div 
@@ -29,12 +25,13 @@ function HeroSection() {
         <p className="text-xl md:text-2xl mb-8">
           What are you waiting for?
         </p>
-        <button
-          onClick={handleClick}
-          className="px-8 py-4 text-xl font-semibold border-2 border-white rounded bg-transparent text-white hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
-        >
-          GET STARTED
-        </button>
+        <Button 
+        scrollTo="search"      // ID of the element to scroll to
+        buttonStyle="outline"   // Transparent with white border
+        buttonSize="large"      // Large size
+      >
+        GET STARTED
+      </Button>
       </div>
     </div>
   );
