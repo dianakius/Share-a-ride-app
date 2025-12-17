@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Button from "./Button";
 
 function Search() {
-  const [startLocation, setStartLocation] = useState('');
-  const [destination, setDestination] = useState('');
-  const [dateTime, setDateTime] = useState('');
+  const [startLocation, setStartLocation] = useState("");
+  const [destination, setDestination] = useState("");
+  const [dateTime, setDateTime] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -24,12 +25,15 @@ function Search() {
   };
 
   return (
-    <div id="search" className="min-h-screen flex flex-col items-center justify-center py-12 px-4 bg-gray-50">
+    <div
+      id="search"
+      className="min-h-screen flex flex-col items-center justify-center py-12 px-4 bg-gray-50"
+    >
       <div className="w-full max-w-4xl bg-white rounded-xl shadow-2xl p-8 border-2 border-black">
         <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">
           Search for Rides
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <div className="flex flex-col">
             <label className="mb-2 font-semibold text-gray-900">
@@ -70,26 +74,30 @@ function Search() {
           </div>
         </div>
 
-        <button
+        <Button
           onClick={handleSearch}
           disabled={isLoading}
-          className="w-full md:w-auto px-8 py-3 bg-black text-white rounded-lg font-semibold hover:bg-white hover:text-black border-2 border-black transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+          buttonStyle="search"
+          buttonSize="medium"
+          type="button"
         >
-          {isLoading ? 'Searching...' : 'Search'}
-        </button>
+          {isLoading ? "Searching..." : "Search Rides"}
+        </Button>
       </div>
 
       {/* Search Results */}
       {searchResults.length > 0 && (
         <div className="w-full max-w-4xl mt-8 bg-white rounded-xl shadow-lg p-6">
-          <h3 className="text-2xl font-bold mb-4 text-gray-900">Search Results:</h3>
+          <h3 className="text-2xl font-bold mb-4 text-gray-900">
+            Search Results:
+          </h3>
           <ul className="space-y-3">
             {searchResults.map((ride, index) => (
               <li
                 key={index}
                 className="p-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
               >
-                <span className="font-semibold">{ride.startingPoint}</span> to{' '}
+                <span className="font-semibold">{ride.startingPoint}</span> to{" "}
                 <span className="font-semibold">{ride.endingPoint}</span>
                 <br />
                 <span className="text-gray-600">
