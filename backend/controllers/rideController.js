@@ -29,7 +29,7 @@ const createRide = async (req, res) => {
     const data = {
       startingPoint: req.body.startingPoint,
       endingPoint: req.body.endingPoint,
-      // driver: req.user.id,
+      driver: req.user.id,
       date: req.body.date,
       time: req.body.time,
       cost: req.body.cost,
