@@ -3,7 +3,7 @@ const rideSchema = new mongoose.Schema(
   {
     startingPoint: String,
     endingPoint: String,
-    driver: { type: mongoose.Schema.Types.ObjectID, ref: "User" },
+    driver: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     date: Date,
     time: String,
     cost: Number,
