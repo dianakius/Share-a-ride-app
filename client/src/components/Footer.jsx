@@ -47,7 +47,7 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/testimonials" className="text-gray-400 hover:text-white transition-colors">
                   Testimonials
                 </Link>
               </li>
@@ -59,12 +59,12 @@ function Footer() {
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/contactus" className="text-gray-400 hover:text-white transition-colors">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/support" className="text-gray-400 hover:text-white transition-colors">
                   Support
                 </Link>
               </li>
@@ -76,17 +76,17 @@ function Footer() {
             <h3 className="text-lg font-bold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/findrides" className="text-gray-400 hover:text-white transition-colors">
                   Find Rides
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/offerrides" className="text-gray-400 hover:text-white transition-colors">
                   Offer Rides
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/safety" className="text-gray-400 hover:text-white transition-colors">
                   Safety
                 </Link>
               </li>
