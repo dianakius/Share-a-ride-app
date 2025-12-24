@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Testimonials from "./components/Testimonials";
 import HowItWorks from "./components/HowItWorks";
 import Support from "./components/Support";
+import Safety from "./components/Safety";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/howItWorks" element={<HowItWorks />} />
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/support" element={<Support />} />
+              <Route path="/safety" element={<Safety />} />
 
             </Routes>
           </main>
