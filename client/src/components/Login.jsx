@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./ContextAuth";
+import Button from "./Button";
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -77,13 +78,7 @@ function Login() {
             />
           </div>
 
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isLoading ? 'Logging in...' : 'Log In'}
-          </button>
+          <Button>Login</Button>
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-600">
