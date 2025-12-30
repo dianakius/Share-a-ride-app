@@ -11,6 +11,7 @@ import Testimonials from "./components/Testimonials";
 import HowItWorks from "./components/HowItWorks";
 import Support from "./components/Support";
 import Safety from "./components/Safety";
+import ContactUs from "./components/ContactUs";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/support" element={<Support />} />
               <Route path="/safety" element={<Safety />} />
+              <Route path="/contact-Us" element={<ContactUs />} />
 
             </Routes>
           </main>
