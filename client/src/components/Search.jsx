@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Button from "./Button";
+import FloatingSticker from "./FloatingSticker";
 
 function Search() {
   const [startLocation, setStartLocation] = useState("");
@@ -73,6 +74,7 @@ function Search() {
             />
           </div>
         </div>
+        <FloatingSticker />
 
         <Button
           onClick={handleSearch}
