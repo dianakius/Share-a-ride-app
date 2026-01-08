@@ -1,28 +1,31 @@
 import React, { useState } from "react";
-import axios from "axios";
 import Button from "./Button";
 import FloatingSticker from "./FloatingSticker";
+import useSearchRides from "../hooks/useSearchRides";
 
 function Search() {
   const [startLocation, setStartLocation] = useState("");
   const [destination, setDestination] = useState("");
   const [dateTime, setDateTime] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSearch = async () => {
-    setIsLoading(true);
-    try {
-      const response = await axios.get(
-        `http://localhost:8001/rides?startLocation=${startLocation}&destination=${destination}&dateTime=${dateTime}`
-      );
-      setSearchResults(response.data);
-    } catch (error) {
-      console.error("Error searching for rides:", error);
-      alert("Failed to search for rides. Please try again.");
-    } finally {
-      setIsLoading(false);
+  const {
+    searchResults,
+    isLoading,
+    error,
+    searchRides,
+    clearError,
+  } = useSearchRides();
+
+  const handleSearch = () => {
+    if (!startLocation || !destination || !dateTime) {
+      return;
     }
+
+    searchRides({
+      startLocation,
+      destination,
+      dateTime,
+    });
   };
 
   return (
@@ -43,8 +46,11 @@ function Search() {
             <input
               type="text"
               value={startLocation}
-              onChange={(e) => setStartLocation(e.target.value)}
-              className="w-full px-4 py-3 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+              onChange={(e) => {
+                setStartLocation(e.target.value);
+                clearError();
+              }}
+              className="w-full px-4 py-3 border-2 border-black rounded-lg"
               placeholder="Enter start location"
             />
           </div>
@@ -56,8 +62,11 @@ function Search() {
             <input
               type="text"
               value={destination}
-              onChange={(e) => setDestination(e.target.value)}
-              className="w-full px-4 py-3 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+              onChange={(e) => {
+                setDestination(e.target.value);
+                clearError();
+              }}
+              className="w-full px-4 py-3 border-2 border-black rounded-lg"
               placeholder="Enter destination"
             />
           </div>
@@ -69,25 +78,34 @@ function Search() {
             <input
               type="datetime-local"
               value={dateTime}
-              onChange={(e) => setDateTime(e.target.value)}
-              className="w-full px-4 py-3 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+              onChange={(e) => {
+                setDateTime(e.target.value);
+                clearError();
+              }}
+              className="w-full px-4 py-3 border-2 border-black rounded-lg"
             />
           </div>
         </div>
+
         <FloatingSticker />
 
         <Button
           onClick={handleSearch}
-          disabled={isLoading}
+          disabled={isLoading || !startLocation || !destination || !dateTime}
           buttonStyle="search"
           buttonSize="medium"
           type="button"
         >
           {isLoading ? "Searching..." : "Search Rides"}
         </Button>
+
+        {error && (
+          <p className="mt-4 text-center text-red-600 font-medium">
+            {error}
+          </p>
+        )}
       </div>
 
-      {/* Search Results */}
       {searchResults.length > 0 && (
         <div className="w-full max-w-4xl mt-8 bg-white rounded-xl shadow-lg p-6">
           <h3 className="text-2xl font-bold mb-4 text-gray-900">
@@ -97,7 +115,7 @@ function Search() {
             {searchResults.map((ride, index) => (
               <li
                 key={index}
-                className="p-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                className="p-4 border border-gray-300 rounded-lg"
               >
                 <span className="font-semibold">{ride.startingPoint}</span> to{" "}
                 <span className="font-semibold">{ride.endingPoint}</span>
