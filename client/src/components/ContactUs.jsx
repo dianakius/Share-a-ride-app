@@ -17,7 +17,6 @@ function ContactUs() {
     setIsLoading(true);
 
     try {
-      
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       setSuccess("Thank you! Your message has been sent.");
@@ -39,7 +38,8 @@ function ContactUs() {
         </h1>
 
         <p className="text-center text-gray-600 mb-8">
-          Have a question or feedback? Send us a message and we’ll get back to you.
+          Have a question or feedback? Send us a message and we’ll get back to
+          you.
         </p>
 
         {success && (
