@@ -64,7 +64,8 @@ function ContactUs() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg 
+focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Your name"
             />
           </div>
@@ -78,7 +79,8 @@ function ContactUs() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg 
+focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="youremail@example.com"
             />
           </div>
@@ -92,7 +94,8 @@ function ContactUs() {
               onChange={(e) => setMessage(e.target.value)}
               required
               rows={4}
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg 
+focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Write your message here..."
             />
           </div>
