@@ -6,20 +6,20 @@ function HowItWorks() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gray-100 px-4 py-16">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-gray-100 px-8 py-12">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
             How It Works
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 py-4">
             Your ticket to affordable, social, and stress-free travel.
           </p>
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div className="bg-white rounded-xl shadow-lg p-8 text-center">
             <h3 className="text-xl font-semibold mb-3">🚗 Find a Ride</h3>
             <p className="text-gray-600">
@@ -46,11 +46,11 @@ function HowItWorks() {
         </div>
 
         {/* Why Share Ride */}
-        <div className="bg-white rounded-xl shadow-xl p-10 mb-20">
+        <div className="bg-white rounded-xl shadow-xl p-10 mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
             Why Choose Share Ride?
           </h2>
-          <div className="grid md:grid-cols-2 gap-6 text-gray-600">
+          <div className="grid md:grid-cols-2 gap-6 py-4 text-gray-600 text-center">
             <p>✅ Travel smarter and cheaper by sharing rides.</p>
             <p>✅ Flexible schedules compared to trains or buses.</p>
             <p>✅ A friendly community of explorers.</p>
@@ -63,10 +63,10 @@ function HowItWorks() {
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Ready to Hit the Road?
           </h2>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-600 mb-8 py-4">
             Adventure is just one click away.
           </p>
-          <Button onClick={() => navigate("/")}>Get Started</Button>
+          <Button onClick={() => navigate("/")}>Let's Ride!</Button>
         </div>
       </div>
     </div>
