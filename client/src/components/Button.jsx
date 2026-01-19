@@ -21,7 +21,7 @@ export const Button = ({
 
   // Style classes - updated 'outline' to match your HeroSection button
   const styleClasses = {
-    primary: "bg-white text-gray-900 border-2 border-white hover:bg-gray-100",
+    primary: "bg-white text-gray-900 border-2 border-gray-300 hover:bg-gray-100",
     outline: "bg-transparent text-white border-2 border-white hover:bg-white hover:text-gray-900",
     test: "bg-blue-500 text-white border-2 border-blue-500 hover:bg-blue-600",
     search: "bg-black text-white border-2 border-black hover:bg-white hover:text-black disabled:opacity-50 disabled:cursor-not-allowed",
