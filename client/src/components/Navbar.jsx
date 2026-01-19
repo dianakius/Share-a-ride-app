@@ -12,7 +12,7 @@ function Navbar() {
   const closeMenu = () => setIsMenuOpen(false);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -37,8 +37,8 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="text-white text-2xl font-bold flex items-center space-x-2 hover:text-gray-300 transition-colors"
             onClick={closeMenu}
           >
@@ -49,20 +49,20 @@ function Navbar() {
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center space-x-8">
             <li>
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className="text-white hover:text-gray-300 transition-colors py-2 border-b-4 border-transparent hover:border-white"
                 onClick={scrollToTop}
               >
                 Home
               </Link>
             </li>
-            
+
             {!isLoggedIn ? (
               <>
                 <li>
-                  <Link 
-                    to="/login" 
+                  <Link
+                    to="/login"
                     className="text-white hover:text-gray-300 transition-colors py-2 border-b-4 border-transparent hover:border-white"
                     onClick={scrollToTop}
                   >
@@ -70,8 +70,8 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/signup" 
+                  <Link
+                    to="/signup"
                     className="text-white hover:text-gray-300 transition-colors py-2 border-b-4 border-transparent hover:border-white"
                     onClick={scrollToTop}
                   >
@@ -82,32 +82,32 @@ function Navbar() {
             ) : (
               <>
                 <li>
-                  <Link 
-                    to="/profile" 
+                  <Link
+                    to="/profile"
                     className="text-white hover:text-gray-300 transition-colors py-2 border-b-4 border-transparent hover:border-white"
                   >
                     Profile
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/about-us" 
+                  <Link
+                    to="/about-us"
                     className="text-white hover:text-gray-300 transition-colors py-2 border-b-4 border-transparent hover:border-white"
                   >
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/new" 
+                  <Link
+                    to="/new"
                     className="text-white hover:text-gray-300 transition-colors py-2 border-b-4 border-transparent hover:border-white"
                   >
                     Announce your Ride
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/" 
+                  <Link
+                    to="/"
                     className="text-white hover:text-gray-300 transition-colors py-2 border-b-4 border-transparent hover:border-white"
                     onClick={handleLogout}
                   >
@@ -116,14 +116,14 @@ function Navbar() {
                 </li>
               </>
             )}
-            
+
             <li>
-              <Link 
-                to="/contact-us" 
+              <Link
+                to="/contact-Us"
                 className="text-white hover:text-gray-300 transition-colors py-2 border-b-4 border-transparent hover:border-white"
                 onClick={scrollToTop}
               >
-                Contact Us
+                Contact
               </Link>
             </li>
           </ul>
@@ -141,31 +141,40 @@ function Navbar() {
         {isMenuOpen && (
           <ul className="md:hidden bg-gray-800 pb-4 space-y-2">
             <li>
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className="block text-white hover:bg-white hover:text-gray-900 transition-colors px-4 py-3"
-                onClick={() => { closeMenu(); scrollToTop(); }}
+                onClick={() => {
+                  closeMenu();
+                  scrollToTop();
+                }}
               >
                 Home
               </Link>
             </li>
-            
+
             {!isLoggedIn ? (
               <>
                 <li>
-                  <Link 
-                    to="/login" 
+                  <Link
+                    to="/login"
                     className="block text-white hover:bg-white hover:text-gray-900 transition-colors px-4 py-3"
-                    onClick={() => { closeMenu(); scrollToTop(); }}
+                    onClick={() => {
+                      closeMenu();
+                      scrollToTop();
+                    }}
                   >
                     Login
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/signup" 
+                  <Link
+                    to="/signup"
                     className="block text-white hover:bg-white hover:text-gray-900 transition-colors px-4 py-3"
-                    onClick={() => { closeMenu(); scrollToTop(); }}
+                    onClick={() => {
+                      closeMenu();
+                      scrollToTop();
+                    }}
                   >
                     Sign up
                   </Link>
@@ -174,8 +183,8 @@ function Navbar() {
             ) : (
               <>
                 <li>
-                  <Link 
-                    to="/profile" 
+                  <Link
+                    to="/profile"
                     className="block text-white hover:bg-white hover:text-gray-900 transition-colors px-4 py-3"
                     onClick={closeMenu}
                   >
@@ -183,8 +192,8 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/about-us" 
+                  <Link
+                    to="/about-us"
                     className="block text-white hover:bg-white hover:text-gray-900 transition-colors px-4 py-3"
                     onClick={closeMenu}
                   >
@@ -192,8 +201,8 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/new" 
+                  <Link
+                    to="/new"
                     className="block text-white hover:bg-white hover:text-gray-900 transition-colors px-4 py-3"
                     onClick={closeMenu}
                   >
@@ -201,22 +210,28 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/" 
+                  <Link
+                    to="/"
                     className="block text-white hover:bg-white hover:text-gray-900 transition-colors px-4 py-3"
-                    onClick={() => { handleLogout(); closeMenu(); }}
+                    onClick={() => {
+                      handleLogout();
+                      closeMenu();
+                    }}
                   >
                     Logout
                   </Link>
                 </li>
               </>
             )}
-            
+
             <li>
-              <Link 
-                to="/contact-us" 
+              <Link
+                to="/contact-us"
                 className="block text-white hover:bg-white hover:text-gray-900 transition-colors px-4 py-3"
-                onClick={() => { closeMenu(); scrollToTop(); }}
+                onClick={() => {
+                  closeMenu();
+                  scrollToTop();
+                }}
               >
                 Contact Us
               </Link>
