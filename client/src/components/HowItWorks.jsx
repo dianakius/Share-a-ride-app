@@ -66,7 +66,7 @@ function HowItWorks() {
           <p className="text-gray-600 mb-8 py-4">
             Adventure is just one click away.
           </p>
-          <Button onClick={() => navigate("/")}>Let's Ride!</Button>
+          <Button onClick={() => navigate("/search")}>Let's Ride!</Button>
         </div>
       </div>
     </div>
