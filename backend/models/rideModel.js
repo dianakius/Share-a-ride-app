@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
+
 const rideSchema = new mongoose.Schema(
-  {
-    startingPoint: String,
-    endingPoint: String,
-    driver: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    date: Date,
-    time: String,
-    cost: Number,
-  },
-  { timestamps: true }
+    {
+        startingPoint: { type: String, required: true },
+        endingPoint: { type: String, required: true },
+        driver: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+        date: { type: Date, required: true },
+        time: { type: String, required: true },
+        cost: { type: Number, required: true },
+    },
+    { timestamps: true }
 );
 
-//Model
 const Ride = mongoose.model("Ride", rideSchema);
 
 module.exports = Ride;
