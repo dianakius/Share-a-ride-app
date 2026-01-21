@@ -15,18 +15,25 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submitted!");
     setError("");
     setIsLoading(true);
 
     try {
       const user = { email, pass: password, name };
       const res = await axios.post("http://localhost:8001/user/register", user);
-      localStorage.setItem("token", res.data.token);
-      setIsLoggedIn(true);
-      navigate("/");
+      
+      // Check if registration was successful and token exists
+      if (res.data.status && res.data.token) {
+        localStorage.setItem("token", res.data.token);
+        setIsLoggedIn(true);
+        navigate("/");
+      } else {
+        setError(res.data.msg || "Registration failed");
+      }
     } catch (error) {
       console.error("Registration failed:", error);
-      setError("Failed to create account. Please try again.");
+      setError(error.response?.data?.msg || "Failed to create account. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -103,7 +110,9 @@ function Signup() {
             />
           </div>
 
-          <Button>Sign Up</Button>
+          <Button disabled={isLoading}>
+            {isLoading ? "Creating Account..." : "Sign Up"}
+          </Button>
         </form>
 
         <p className="mt-6 text-center text-sm text-gray-600">
