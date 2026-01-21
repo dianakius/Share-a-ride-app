@@ -6,7 +6,7 @@ const SIZES = ["medium", "large"];
 
 const Button = ({
   children,
-  type = "button",
+  type = "submit",
   onClick,
   buttonStyle = "primary",
   buttonSize = "medium",
