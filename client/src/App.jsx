@@ -6,7 +6,9 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 import Ride from "./components/Ride";
-import Search from "./components/Search"
+import Search from "./components/Search";
+import Profile from "./components/Profile";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Footer from "./components/Footer";
 import Testimonials from "./components/Testimonials";
 import HowItWorks from "./components/HowItWorks";
@@ -32,7 +34,16 @@ function App() {
               <Route path="/support" element={<Support />} />
               <Route path="/safety" element={<Safety />} />
               <Route path="/contact-Us" element={<ContactUs />} />
-
+              
+              {/* Protected Profile Route */}
+              <Route 
+                path="/profile" 
+                element={
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                } 
+              />
             </Routes>
           </main>
           <Footer />
