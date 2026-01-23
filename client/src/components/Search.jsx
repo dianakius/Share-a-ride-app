@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import FloatingSticker from "./FloatingSticker";
+
 import useSearchRides from "../hooks/useSearchRides";
 
 function Search() {
@@ -87,7 +87,7 @@ function Search() {
           </div>
         </div>
 
-        <FloatingSticker />
+       
 
         <Button
           onClick={handleSearch}
