@@ -15,6 +15,7 @@ import HowItWorks from "./components/HowItWorks";
 import Support from "./components/Support";
 import Safety from "./components/Safety";
 import ContactUs from "./components/ContactUs";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -35,12 +36,14 @@ function App() {
               <Route path="/safety" element={<Safety />} />
               <Route path="/contact-Us" element={<ContactUs />} />
               
+              
               {/* Protected Profile Route */}
               <Route 
                 path="/profile" 
                 element={
                   <ProtectedRoute>
                     <Profile />
+                    <AboutUs />
                   </ProtectedRoute>
                 } 
               />
