@@ -33,7 +33,7 @@ function Testimonials() {
   ];
 
   return (
-    <section className="py-16 px-6 bg-gray-50">
+    <section className="py-4 px-6 bg-gray-50">
       <h1 className="text-4xl font-bold text-center mb-12">
         What Our Travelers Say
       </h1>
