@@ -33,8 +33,8 @@ function Testimonials() {
   ];
 
   return (
-    <section className="py-4 px-6 bg-gray-50">
-      <h1 className="text-4xl font-bold text-center mb-12">
+    <section className="py-8 px-6 bg-gray-50">
+      <h1 className="text-2xl font-bold text-center mb-4 text-gray-900">
         What Our Travelers Say
       </h1>
 
@@ -42,9 +42,13 @@ function Testimonials() {
         {testimonials.map((t, index) => (
           <div
             key={index}
-            className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300"
+            className="bg-white border border-gray-200 rounded-2xl p-6
+                       shadow-sm hover:shadow-lg transition-all duration-300
+                       hover:-translate-y-1"
           >
-            <p className="text-gray-700 italic mb-6">“{t.text}”</p>
+            <p className="text-gray-700 italic mb-6 leading-relaxed">
+              “{t.text}”
+            </p>
 
             <div className="flex items-center gap-4">
               <span className="text-3xl">{t.emoji}</span>
