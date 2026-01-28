@@ -16,11 +16,13 @@ import Support from "./components/Support";
 import Safety from "./components/Safety";
 import ContactUs from "./components/ContactUs";
 import AboutUs from "./components/AboutUs";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+      <ScrollToTop/>
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="grow">
