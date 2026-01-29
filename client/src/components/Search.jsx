@@ -1,137 +1,202 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Button from "./Button";
 
-import useSearchRides from "../hooks/useSearchRides";
-
 function Search() {
-  const [startLocation, setStartLocation] = useState("");
-  const [destination, setDestination] = useState("");
-  const [dateTime, setDateTime] = useState("");
+  const [searchData, setSearchData] = useState({
+    startLocation: "",
+    destination: "",
+    dateTime: "",
+  });
+  const [rides, setRides] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [searched, setSearched] = useState(false);
 
-  const {
-    searchResults,
-    isLoading,
-    error,
-    searchRides,
-    clearError,
-  } = useSearchRides();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setSearchData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-  const handleSearch = () => {
-    if (!startLocation || !destination || !dateTime) {
-      return;
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    setError("");
+    setIsLoading(true);
+    setSearched(true);
+
+    try {
+      const params = new URLSearchParams();
+      if (searchData.startLocation) params.append("startLocation", searchData.startLocation);
+      if (searchData.destination) params.append("destination", searchData.destination);
+      if (searchData.dateTime) params.append("dateTime", searchData.dateTime);
+
+      const response = await axios.get(
+        `http://localhost:8001/ride/search?${params.toString()}`
+      );
+
+      if (response.data.status) {
+        setRides(response.data.rides);
+      } else {
+        setError("No rides found");
+        setRides([]);
+      }
+    } catch (error) {
+      console.error("Search error:", error);
+      setError("Failed to search rides. Please try again.");
+      setRides([]);
+    } finally {
+      setIsLoading(false);
     }
-
-    searchRides({
-      startLocation,
-      destination,
-      dateTime,
-    });
   };
 
   return (
-    <div
-      id="search"
-      className="min-h-screen flex flex-col items-center justify-center py-12 px-4 bg-gray-50"
-    >
-      <div className="w-full max-w-4xl bg-white rounded-xl shadow-2xl p-8 border-2 border-black">
-        <h2 className="text-3xl font-bold text-center mb-8 text-gray-900">
-          Search for Rides
-        </h2>
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 py-12 px-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Search Form */}
+        <div className="bg-white rounded-xl shadow-2xl p-8 mb-8">
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+            Search for a Ride
+          </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-gray-900">
-              Start Location:
-            </label>
-            <input
-              type="text"
-              value={startLocation}
-              onChange={(e) => {
-                setStartLocation(e.target.value);
-                clearError();
-              }}
-              className="w-full px-4 py-3 border-2 border-black rounded-lg"
-              placeholder="Enter start location"
-            />
-          </div>
+          <form onSubmit={handleSearch} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  From
+                </label>
+                <input
+                  type="text"
+                  name="startLocation"
+                  value={searchData.startLocation}
+                  onChange={handleChange}
+                  placeholder="e.g., Athens"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
 
-          <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-gray-900">
-              Destination:
-            </label>
-            <input
-              type="text"
-              value={destination}
-              onChange={(e) => {
-                setDestination(e.target.value);
-                clearError();
-              }}
-              className="w-full px-4 py-3 border-2 border-black rounded-lg"
-              placeholder="Enter destination"
-            />
-          </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  To
+                </label>
+                <input
+                  type="text"
+                  name="destination"
+                  value={searchData.destination}
+                  onChange={handleChange}
+                  placeholder="e.g., Thessaloniki"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
 
-          <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-gray-900">
-              Date and Time:
-            </label>
-            <input
-              type="datetime-local"
-              value={dateTime}
-              onChange={(e) => {
-                setDateTime(e.target.value);
-                clearError();
-              }}
-              className="w-full px-4 py-3 border-2 border-black rounded-lg"
-            />
-          </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  Date
+                </label>
+                <input
+                  type="date"
+                  name="dateTime"
+                  value={searchData.dateTime}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+
+            <Button
+              type="submit"
+              buttonStyle="search"
+              buttonSize="large"
+              disabled={isLoading}
+            >
+              {isLoading ? "Searching..." : "Search Rides"}
+            </Button>
+          </form>
         </div>
 
-       
-
-        <Button
-          onClick={handleSearch}
-          disabled={isLoading || !startLocation || !destination || !dateTime}
-          buttonStyle="search"
-          buttonSize="medium"
-          type="button"
-        >
-          {isLoading ? "Searching..." : "Search Rides"}
-        </Button>
-
+        {/* Error Message */}
         {error && (
-          <p className="mt-4 text-center text-red-600 font-medium">
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
             {error}
-          </p>
+          </div>
+        )}
+
+        {/* Search Results */}
+        {searched && !isLoading && (
+          <div className="bg-white rounded-xl shadow-2xl p-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              {rides.length > 0
+                ? `Found ${rides.length} ride${rides.length > 1 ? "s" : ""}`
+                : "No rides found"}
+            </h3>
+
+            {rides.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {rides.map((ride) => (
+                  <div
+                    key={ride._id}
+                    className="border-2 border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <p className="text-sm text-gray-500">From</p>
+                          <p className="text-lg font-bold text-gray-900">
+                            {ride.startingPoint}
+                          </p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-sm text-gray-500">To</p>
+                          <p className="text-lg font-bold text-gray-900">
+                            {ride.endingPoint}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="border-t pt-3">
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-600">Date:</span>
+                          <span className="font-semibold">
+                            {new Date(ride.date).toLocaleDateString()}
+                          </span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-600">Time:</span>
+                          <span className="font-semibold">{ride.time}</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-gray-600">Cost:</span>
+                          <span className="font-semibold text-green-600">
+                            €{ride.cost}
+                          </span>
+                        </div>
+                        {ride.driver && (
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-600">Driver:</span>
+                            <span className="font-semibold">
+                              {ride.driver.username}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+
+                      <button className="w-full mt-4 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Book Ride
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-center text-gray-500 py-8">
+                Try adjusting your search criteria
+              </p>
+            )}
+          </div>
         )}
       </div>
-
-      {searchResults.length > 0 && (
-        <div className="w-full max-w-4xl mt-8 bg-white rounded-xl shadow-lg p-6">
-          <h3 className="text-2xl font-bold mb-4 text-gray-900">
-            Search Results:
-          </h3>
-          <ul className="space-y-3">
-            {searchResults.map((ride, index) => (
-              <li
-                key={index}
-                className="p-4 border border-gray-300 rounded-lg"
-              >
-                <span className="font-semibold">{ride.startingPoint}</span> to{" "}
-                <span className="font-semibold">{ride.endingPoint}</span>
-                <br />
-                <span className="text-gray-600">
-                  {ride.date} at {ride.time}
-                </span>
-                <br />
-                <span className="text-green-600 font-semibold">
-                  Cost: ${ride.cost}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 }
