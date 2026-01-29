@@ -202,9 +202,8 @@ function Navbar() {
                 </li>
                 <li>
                   <Link
-                    to="/new"
-                    className="block text-white hover:bg-white hover:text-gray-900 transition-colors px-4 py-3"
-                    onClick={closeMenu}
+                    to="/new" 
+                    className="text-white hover:text-gray-300 transition-colors py-2 border-b-4 border-transparent hover:border-white"
                   >
                     Announce your Ride
                   </Link>
