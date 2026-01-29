@@ -22,30 +22,38 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-      <ScrollToTop/>
+        <ScrollToTop />
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="grow">
             <Routes>
+              {/* Public Routes */}
+              <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/ride" element={<Ride />} />
               <Route path="/search" element={<Search />} />
-              <Route path="/" element={<Home />} />
               <Route path="/howItWorks" element={<HowItWorks />} />
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/support" element={<Support />} />
               <Route path="/safety" element={<Safety />} />
               <Route path="/contact-Us" element={<ContactUs />} />
+              <Route path="/about-us" element={<AboutUs />} />
               
+              {/* Protected Routes - Only for logged-in users */}
+              <Route 
+                path="/new" 
+                element={
+                  <ProtectedRoute>
+                    <Ride />
+                  </ProtectedRoute>
+                } 
+              />
               
-              {/* Protected Profile Route */}
               <Route 
                 path="/profile" 
                 element={
                   <ProtectedRoute>
                     <Profile />
-                    <AboutUs />
                   </ProtectedRoute>
                 } 
               />
