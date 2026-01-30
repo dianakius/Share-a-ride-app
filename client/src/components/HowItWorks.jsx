@@ -9,7 +9,6 @@ import {
   Shield,
   Heart,
   MapPin,
-  ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Button from "./Button";
@@ -58,7 +57,7 @@ function HowItWorks() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 px-4 py-16">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-purple-50 to-pink-50 px-4 py-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -95,7 +94,7 @@ function HowItWorks() {
               className="bg-white rounded-xl shadow-lg p-8 text-center relative overflow-hidden group"
             >
               {/* Step Number Badge */}
-              <div className="absolute top-4 right-4 bg-gradient-to-br from-blue-500 to-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
+              <div className="absolute top-4 right-4 bg-linear-to-br from-blue-500 to-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
                 {index + 1}
               </div>
 
@@ -112,7 +111,7 @@ function HowItWorks() {
               </p>
 
               {/* Decorative bottom border on hover */}
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-linear-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </motion.div>
           ))}
         </div>
@@ -140,7 +139,7 @@ function HowItWorks() {
                 transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
                 className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
               >
-                <div className="flex-shrink-0 bg-gray-100 p-3 rounded-full">
+                <div className="flex-0 bg-gray-100 p-3 rounded-full">
                   {benefit.icon}
                 </div>
                 <p className="text-gray-700 font-medium">{benefit.text}</p>
@@ -154,7 +153,7 @@ function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl shadow-2xl p-12 text-center text-white"
+          className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl shadow-2xl p-12 text-center text-white"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Hit the Road?
