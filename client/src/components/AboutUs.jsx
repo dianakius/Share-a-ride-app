@@ -27,7 +27,7 @@ function AboutUs() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-16 px-4">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-purple-50 py-16 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Hero Section */}
         <motion.div 
@@ -74,7 +74,7 @@ function AboutUs() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-2xl p-12 text-center text-white"
+          className="bg-linear-to-r from-blue-600 to-purple-600 rounded-xl shadow-2xl p-12 text-center text-white"
         >
           <div className="flex justify-center mb-4">
             <Rocket className="w-16 h-16" />
