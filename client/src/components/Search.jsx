@@ -53,7 +53,7 @@ function Search() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 py-12 px-4">
+    <div className="min-h-screen bg-linear-to-br from-gray-100 to-gray-200 py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Search Form */}
         <div className="bg-white rounded-xl shadow-2xl p-8 mb-8">
