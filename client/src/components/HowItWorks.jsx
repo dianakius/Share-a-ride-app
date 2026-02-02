@@ -57,16 +57,16 @@ function HowItWorks() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 via-purple-50 to-pink-50 px-4 py-16">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-purple-50 to-pink-50 px-12 py-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
-          <div className="flex justify-center mb-6">
+          <div className="flex justify-center mb-4">
             <motion.div
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
@@ -153,7 +153,7 @@ function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl shadow-2xl p-12 text-center text-white"
+          className="bg-linear-to-r from-gray-700 to-purple-600 rounded-xl shadow-2xl p-12 text-center text-black"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Hit the Road?
@@ -172,18 +172,6 @@ function HowItWorks() {
               Let's Ride! 🚗
             </Button>
           </div>
-        </motion.div>
-
-        {/* Bottom decoration */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-          className="text-center mt-12"
-        >
-          <p className="text-gray-600 text-lg italic">
-            🌟 Every journey begins with a single ride
-          </p>
         </motion.div>
       </div>
     </div>
