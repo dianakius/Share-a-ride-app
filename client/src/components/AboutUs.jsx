@@ -1,8 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Sparkles, Car, DollarSign, Users, Globe, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Button from './Button';
 
 function AboutUs() {
+  const navigate = useNavigate();
+
   const features = [
     {
       icon: <Car className="w-12 h-12 text-blue-600" />,
@@ -27,7 +31,7 @@ function AboutUs() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 to-purple-50 py-16 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-16 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Hero Section */}
         <motion.div 
@@ -37,9 +41,21 @@ function AboutUs() {
           className="text-center mb-16"
         >
           <div className="flex justify-center mb-4">
-            <Sparkles className="w-16 h-16 text-yellow-500" />
+            <motion.div
+              animate={{ 
+                scale: [1, 1.2, 1],
+                rotate: [0, 360, 360, 0]
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity, 
+                repeatDelay: 2 
+              }}
+            >
+              <Sparkles className="w-16 h-16 text-yellow-500" />
+            </motion.div>
           </div>
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Welcome to Share Ride!
           </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
@@ -56,15 +72,21 @@ function AboutUs() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-shadow"
+              whileHover={{ y: -10, transition: { duration: 0.2 } }}
+              className="bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-shadow relative overflow-hidden group"
             >
-              <div className="mb-4">{feature.icon}</div>
+              <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
+                {feature.icon}
+              </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 {feature.title}
               </h2>
               <p className="text-gray-700 leading-relaxed">
                 {feature.description}
               </p>
+
+              {/* Decorative bottom border on hover */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </motion.div>
           ))}
         </div>
@@ -74,12 +96,17 @@ function AboutUs() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-linear-to-r from-blue-600 to-purple-600 rounded-xl shadow-2xl p-12 text-center text-white"
+          className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-2xl p-12 text-center text-white"
         >
           <div className="flex justify-center mb-4">
-            <Rocket className="w-16 h-16" />
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <Rocket className="w-16 h-16" />
+            </motion.div>
           </div>
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready for Your Next Adventure?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -87,10 +114,16 @@ function AboutUs() {
             and boundless smiles. Let's rev up those engines and make every trip
             a remarkable one!
           </p>
-          <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors transform hover:scale-105 flex items-center gap-2 mx-auto">
-            Start Your Journey Today
-            <Car className="w-5 h-5" />
-          </button>
+          
+          <div className="flex justify-center">
+            <Button 
+              onClick={() => navigate("/signup")}
+              buttonStyle="primary"
+              buttonSize="large"
+            >
+              Start Your Journey Today 🚗
+            </Button>
+          </div>
         </motion.div>
 
         {/* Bottom tagline */}
@@ -101,7 +134,7 @@ function AboutUs() {
           className="text-center mt-12"
         >
           <p className="text-gray-600 text-lg italic">
-            Every journey is an adventure waiting to happen
+            🛣️ Every journey is an adventure waiting to happen
           </p>
         </motion.div>
       </div>
