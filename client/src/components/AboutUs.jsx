@@ -1,8 +1,8 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Sparkles, Car, DollarSign, Users, Globe, Rocket } from 'lucide-react';
-import { motion } from 'framer-motion';
-import Button from './Button';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Sparkles, Car, DollarSign, Users, Globe, Rocket } from "lucide-react";
+import { motion } from "framer-motion";
+import Button from "./Button";
 
 function AboutUs() {
   const navigate = useNavigate();
@@ -11,45 +11,49 @@ function AboutUs() {
     {
       icon: <Car className="w-12 h-12 text-blue-600" />,
       title: "Hop on the Joyride!",
-      description: "Gone are the days of fretting over pricey train tickets or cramped bus schedules. With Share Ride, you're in the driver's seat of your own journey."
+      description:
+        "Gone are the days of fretting over pricey train tickets or cramped bus schedules. With Share Ride, you're in the driver's seat of your own journey.",
     },
     {
       icon: <DollarSign className="w-12 h-12 text-green-600" />,
       title: "Save Big, Travel Happy!",
-      description: "Why break the bank when you can share the ride and split the cost? By teaming up with fellow travelers, you'll slash expenses and maximize fun!"
+      description:
+        "Why break the bank when you can share the ride and split the cost? By teaming up with fellow travelers, you'll slash expenses and maximize fun!",
     },
     {
       icon: <Users className="w-12 h-12 text-purple-600" />,
       title: "Connect, Bond, Repeat!",
-      description: "Share Ride is a vibrant community of like-minded explorers. Forge new friendships, swap stories, and create memories that'll last a lifetime."
+      description:
+        "Share Ride is a vibrant community of like-minded explorers. Forge new friendships, swap stories, and create memories that'll last a lifetime.",
     },
     {
       icon: <Globe className="w-12 h-12 text-indigo-600" />,
       title: "The World Awaits!",
-      description: "Ready to hit the road? Whether you're a seasoned wanderer or first-time traveler, there's a seat with your name on it."
-    }
+      description:
+        "Ready to hit the road? Whether you're a seasoned wanderer or first-time traveler, there's a seat with your name on it.",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-purple-50 py-12 px-8">
       <div className="max-w-5xl mx-auto">
         {/* Hero Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <div className="flex justify-center mb-4">
             <motion.div
-              animate={{ 
+              animate={{
                 scale: [1, 1.2, 1],
-                rotate: [0, 360, 360, 0]
+                rotate: [0, 360, 360, 0],
               }}
-              transition={{ 
-                duration: 3, 
-                repeat: Infinity, 
-                repeatDelay: 2 
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatDelay: 2,
               }}
             >
               <Sparkles className="w-16 h-16 text-yellow-500" />
@@ -65,7 +69,7 @@ function AboutUs() {
         </motion.div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -92,11 +96,11 @@ function AboutUs() {
         </div>
 
         {/* Call to Action */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-linear-to-r from-gray-700 to-purple-600 rounded-2xl shadow-2xl p-8 text-center text-black"
+          className="bg-linear-to-r from-gray-700 to-purple-600 rounded-xl shadow-2xl p-8 text-center text-black"
         >
           <div className="flex justify-center mb-4">
             <motion.div
@@ -114,9 +118,9 @@ function AboutUs() {
             and boundless smiles. Let's rev up those engines and make every trip
             a remarkable one!
           </p>
-          
+
           <div className="flex justify-center">
-            <Button 
+            <Button
               onClick={() => navigate("/signup")}
               buttonStyle="primary"
               buttonSize="large"
@@ -124,18 +128,6 @@ function AboutUs() {
               Start Your Journey Today 🚗
             </Button>
           </div>
-        </motion.div>
-
-        {/* Bottom tagline */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <p className="text-gray-600 text-lg italic">
-            🛣️ Every journey is an adventure waiting to happen
-          </p>
         </motion.div>
       </div>
     </div>
