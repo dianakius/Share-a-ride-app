@@ -74,10 +74,10 @@ function HowItWorks() {
               <Car className="w-20 h-20 text-blue-600" />
             </motion.div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl md:text-6xl font-bold text-gray-900 mb-4">
             How It Works
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-black max-w-2xl mx-auto">
             Your ticket to affordable, social, and stress-free travel.
           </p>
         </motion.div>
@@ -94,11 +94,11 @@ function HowItWorks() {
               className="bg-white rounded-xl shadow-lg p-8 text-center relative overflow-hidden group"
             >
               {/* Step Number Badge */}
-              <div className="absolute top-4 right-4 bg-linear-to-br from-blue-500 to-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
+              <div className="top-4 right-4 bg-linear-to-br from-gray-700 to-purple-600 text-black w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">
                 {index + 1}
               </div>
 
-              <div className="flex justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="flex justify-center mb-10 group-hover:scale-110 transition-transform duration-300">
                 {step.icon}
               </div>
 
@@ -121,7 +121,7 @@ function HowItWorks() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="bg-white rounded-2xl shadow-2xl p-10 mb-16"
+          className="bg-white rounded-xl shadow-2xl p-8 mb-8"
         >
           <div className="flex items-center justify-center mb-8">
             <MapPin className="w-10 h-10 text-blue-600 mr-3" />
@@ -153,7 +153,7 @@ function HowItWorks() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          className="bg-linear-to-r from-gray-700 to-purple-600 rounded-xl shadow-2xl p-12 text-center text-black"
+          className="bg-linear-to-r from-gray-700 to-purple-600 rounded-xl shadow-2xl p-8 text-center text-black"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Hit the Road?
