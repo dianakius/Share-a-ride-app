@@ -59,7 +59,7 @@ function AboutUs() {
               <Sparkles className="w-16 h-16 text-yellow-500" />
             </motion.div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl md:text-5xl font-bold text-gray-900 mb-4">
             Welcome to Share Ride!
           </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
